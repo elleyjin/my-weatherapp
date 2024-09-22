@@ -23,6 +23,16 @@
   color: gray;
 }
 
+.App .Location {
+  font-size: 18pt;
+  color: white;
+  margin: 15px;
+}
+
+.App .LocationDot {
+  margin: 0 10px;
+}
+
 .App .Main {
   text-align: center;
 }
