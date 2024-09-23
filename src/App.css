@@ -56,8 +56,13 @@
   font-weight: 700;
 }
 
-.App .LowHigh {
+.App .Description {
   font-size: 15pt;
+}
+
+.App .LowHigh {
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 .App .Footer {
