@@ -1,4 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./App.css";
 import { useState } from "react";
@@ -15,6 +16,7 @@ function App(props) {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       wind: response.data.wind.speed,
+      date: new Date(response.data.time * 1000),
       icon: response.data.condition.icon,
       iconUrl: `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/097/811/original/sun.png?1695302792`,
     });
@@ -47,7 +49,7 @@ function App(props) {
           <p className="LowHigh">
             humidity: {weatherData.humidity}% | wind: {weatherData.wind} km/h
           </p>
-          <p>date | time updated</p>
+          <FormattedDate date={weatherData.date} />
         </div>
         <footer className="Footer">
           <p>
