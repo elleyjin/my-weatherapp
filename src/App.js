@@ -79,7 +79,6 @@ function App(props) {
     );
   } else {
     search();
-    return "Loading...";
   }
 }
 
