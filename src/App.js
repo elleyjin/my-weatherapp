@@ -22,7 +22,6 @@ function App(props) {
       feel: Math.round(response.data.temperature.feels_like),
       date: new Date(response.data.time * 1000),
       icon: response.data.condition.icon,
-      iconUrl: `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/097/811/original/sun.png?1695302792`,
     });
   }
 
