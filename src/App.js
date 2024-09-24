@@ -9,8 +9,6 @@ function App(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function displayWeatherData(response) {
-    console.log(response.data);
-
     setWeatherData({
       load: true,
       city: response.data.city,

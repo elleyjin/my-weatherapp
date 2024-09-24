@@ -7,11 +7,9 @@ export default function WeatherInfo(props) {
   return (
     <div className="Main">
       <Icon code={props.data.icon} alt={props.data.description} />
-      {/* <span className="Temperature">{props.data.temperature}</span>
-      <span className="Units">°C | °F</span> */}
       <UnitConversion celsius={props.data.temperature} />
-      <p className="Description">{props.data.description}</p>
-      <div className="Condition">
+      <p className="description">{props.data.description}</p>
+      <div className="weather-condition">
         <span>
           <i className="fa-solid fa-droplet"></i> {props.data.humidity}%
         </span>{" "}

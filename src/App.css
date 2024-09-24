@@ -60,11 +60,11 @@
   font-weight: 400;
 }
 
-.App .Description {
+.App .description {
   font-size: 15pt;
 }
 
-.App .Condition {
+.App .weather-condition {
   font-size: 14pt;
   font-weight: 600;
   display: flex;
@@ -74,7 +74,7 @@
   margin: 30px;
 }
 
-.App .Condition .fa-solid {
+.App .weather-condition .fa-solid {
   margin-right: 5px;
 }
 
