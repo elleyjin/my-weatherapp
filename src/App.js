@@ -14,7 +14,6 @@ function App(props) {
     setWeatherData({
       load: true,
       city: response.data.city,
-      country: response.data.country,
       temperature: Math.round(response.data.temperature.current),
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
@@ -47,9 +46,7 @@ function App(props) {
         <nav className="navbar">
           <div className="location navbar-brand d-flex">
             <i className="fa-solid fa-location-dot LocationDot"></i>
-            <h1 className="text-lowercase">
-              {weatherData.city}, {weatherData.country}
-            </h1>
+            <h1 className="text-lowercase">{weatherData.city}</h1>
           </div>
           <form className="d-flex" onSubmit={handleSubmit}>
             <input
