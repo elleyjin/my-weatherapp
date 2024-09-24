@@ -7,7 +7,6 @@ import { useState } from "react";
 function App(props) {
   const [weatherData, setWeatherData] = useState({ load: false });
   const [city, setCity] = useState(props.defaultCity);
-  const [displayCity, setDisplayCity] = useState(props.defaultCity);
 
   function displayWeatherData(response) {
     console.log(response.data);
@@ -36,7 +35,6 @@ function App(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setDisplayCity(city);
     search();
   }
 
@@ -50,7 +48,7 @@ function App(props) {
         <nav className="Navbar navbar">
           <div className="Location navbar-brand d-flex">
             <i className="fa-solid fa-location-dot LocationDot"></i>
-            <h1 className="text-lowercase">{displayCity}</h1>
+            <h1 className="text-lowercase">{weatherData.city}</h1>
           </div>
           <form className="d-flex" onSubmit={handleSubmit}>
             <input
