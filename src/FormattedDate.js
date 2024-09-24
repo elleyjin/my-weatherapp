@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function FormattedDate(props) {
   const months = [
@@ -25,11 +25,11 @@ export default function FormattedDate(props) {
     minutes: props.date.getMinutes(),
   };
 
-  function convertTime() {
-    const [hours, setHours] = useState(date.hour);
-    if (date.hour > 12) {
-      setHours();
-    }
+  function formattedTime(hour, minutes) {
+    const formattedHour = hour % 12 || 12; // convert 24 hours to 12 hours format
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    const amPm = hour >= 12 ? "pm" : "am";
+    return `${formattedHour}:${formattedMinutes}${amPm}`;
   }
 
   console.log(props.date);
@@ -37,7 +37,9 @@ export default function FormattedDate(props) {
   return (
     <p>
       {" "}
-      {date.date} {date.month} {date.year} | {date.hour}:{date.minutes}
+      {date.date} {date.month} {date.year} | updated at{" "}
+      {formattedTime(date.hour, date.minutes)}
+      {}
     </p>
   );
 }
