@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import FormattedDate from "./FormattedDate";
+import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./App.css";
 import { useState } from "react";
@@ -16,6 +16,7 @@ function App(props) {
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
       wind: response.data.wind.speed,
+      feel: Math.round(response.data.temperature.feels_like),
       date: new Date(response.data.time * 1000),
       icon: response.data.condition.icon,
       iconUrl: `https://s3.amazonaws.com/shecodesio-production/uploads/files/000/097/811/original/sun.png?1695302792`,
@@ -41,16 +42,7 @@ function App(props) {
             </button>
           </form>
         </nav>
-        <div className="Main">
-          <img src={weatherData.iconUrl} alt={weatherData.icon} />
-          <span className="Temperature">{weatherData.temperature}</span>
-          <span className="Units">°C | °F</span>
-          <p className="Description">{weatherData.description}</p>
-          <p className="LowHigh">
-            humidity: {weatherData.humidity}% | wind: {weatherData.wind} km/h
-          </p>
-          <FormattedDate date={weatherData.date} />
-        </div>
+        <WeatherInfo data={weatherData} />
         <footer className="Footer">
           <p>
             <a
@@ -69,7 +61,6 @@ function App(props) {
     const apiKey = `aed3fabf26t4afa48435e0ea0oed7b6e`;
     const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
 
-    console.log(apiUrl);
     axios.get(apiUrl).then(displayWeatherData);
   }
 }

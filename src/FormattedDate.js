@@ -32,8 +32,6 @@ export default function FormattedDate(props) {
     return `${formattedHour}:${formattedMinutes}${amPm}`;
   }
 
-  console.log(props.date);
-
   return (
     <p>
       {" "}

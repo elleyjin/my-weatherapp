@@ -60,9 +60,18 @@
   font-size: 15pt;
 }
 
-.App .LowHigh {
+.App .Condition {
   font-size: 14pt;
   font-weight: 600;
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.App .fa-solid {
+  margin-right: 5px;
 }
 
 .App .Footer {
