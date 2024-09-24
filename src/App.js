@@ -44,10 +44,12 @@ function App(props) {
   if (weatherData.load) {
     return (
       <div className="App container-fluid">
-        <nav className="Navbar navbar">
-          <div className="Location navbar-brand d-flex">
+        <nav className="navbar">
+          <div className="location navbar-brand d-flex">
             <i className="fa-solid fa-location-dot LocationDot"></i>
-            <h1 className="text-lowercase">{weatherData.city}</h1>
+            <h1 className="text-lowercase">
+              {weatherData.city}, {weatherData.country}
+            </h1>
           </div>
           <form className="d-flex" onSubmit={handleSubmit}>
             <input
@@ -62,7 +64,7 @@ function App(props) {
           </form>
         </nav>
         <WeatherInfo data={weatherData} />
-        <footer className="Footer">
+        <footer className="footer">
           <p>
             <a
               href="https://github.com/elleyjin/weather-app"

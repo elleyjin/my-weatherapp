@@ -19,11 +19,11 @@
   color: white;
 }
 
-.App .Navbar input {
+.App .navbar input {
   color: gray;
 }
 
-.App .Location {
+.App .location {
   font-size: 18pt;
   color: white;
   margin: 15px;
@@ -37,7 +37,7 @@
   text-align: center;
 }
 
-.App .Temperature {
+.App .temperature {
   font-size: 55pt;
   font-weight: 600;
 }
@@ -48,12 +48,16 @@
   width: 150px;
 }
 
-.App .Units {
+.App .units {
   font-size: 15pt;
   position: relative;
   top: -34px;
   margin-left: 5px;
   font-weight: 700;
+}
+
+.App .WeatherTemperature .units a.inactive {
+  font-weight: 400;
 }
 
 .App .Description {
@@ -74,13 +78,13 @@
   margin-right: 5px;
 }
 
-.App .Footer {
+.App footer {
   text-align: center;
   opacity: 0.8;
   margin: 25px auto;
 }
 
-.App .Footer a {
+.App footer a {
   font-weight: 700;
   opacity: 1;
   cursor: pointer;
