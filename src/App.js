@@ -6,12 +6,16 @@ import { useState } from "react";
 
 function App(props) {
   const [weatherData, setWeatherData] = useState({ load: false });
+  const [city, setCity] = useState(props.defaultCity);
+  const [displayCity, setDisplayCity] = useState(props.defaultCity);
 
   function displayWeatherData(response) {
     console.log(response.data);
 
     setWeatherData({
       load: true,
+      city: response.data.city,
+      country: response.data.country,
       temperature: Math.round(response.data.temperature.current),
       humidity: response.data.temperature.humidity,
       description: response.data.condition.description,
@@ -23,19 +27,37 @@ function App(props) {
     });
   }
 
+  function search() {
+    const apiKey = `aed3fabf26t4afa48435e0ea0oed7b6e`;
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+
+    axios.get(apiUrl).then(displayWeatherData);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setDisplayCity(city);
+    search();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.load) {
     return (
       <div className="App container-fluid">
         <nav className="Navbar navbar">
           <div className="Location navbar-brand d-flex">
             <i className="fa-solid fa-location-dot LocationDot"></i>
-            <h1>{props.defaultCity}</h1>
+            <h1 className="text-lowercase">{displayCity}</h1>
           </div>
-          <form className="d-flex">
+          <form className="d-flex" onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Enter a city"
               className="form-control me-2"
+              onChange={updateCity}
             ></input>
             <button className="btn btn-outline-light" type="submit">
               <i className="fa-solid fa-magnifying-glass"></i>
@@ -58,10 +80,8 @@ function App(props) {
       </div>
     );
   } else {
-    const apiKey = `aed3fabf26t4afa48435e0ea0oed7b6e`;
-    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}`;
-
-    axios.get(apiUrl).then(displayWeatherData);
+    search();
+    return "Loading...";
   }
 }
 
