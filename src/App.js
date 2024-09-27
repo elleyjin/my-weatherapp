@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import axios from "axios";
 import "./App.css";
 import { useState } from "react";
@@ -19,7 +20,9 @@ function App(props) {
       feel: Math.round(response.data.temperature.feels_like),
       date: new Date(response.data.time * 1000),
       icon: response.data.condition.icon,
+      coordinates: response.data.coordinates,
     });
+    // console.log(response.data);
   }
 
   function search() {
@@ -59,6 +62,7 @@ function App(props) {
           </form>
         </nav>
         <WeatherInfo data={weatherData} />
+        <WeatherForecast data={weatherData} />
         <footer className="footer">
           <p>
             <a
