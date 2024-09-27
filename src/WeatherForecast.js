@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import Icon from "./Icon";
 import "./WeatherForecast.css";
 import axios from "axios";
+import ForecastDay from "./ForecastDay";
 
 export default function WeatherForecast(props) {
   const [dailyForecast, setDailyForecast] = useState(null);
   const [load, setLoad] = useState(false);
 
   function displayForecast(response) {
-    // console.log(response.data.daily);
     setDailyForecast(response.data.daily);
     setLoad(true);
+    // console.log(response.data.daily);
   }
 
   function apiSearch() {
@@ -27,23 +27,13 @@ export default function WeatherForecast(props) {
       <div className="WeatherForecast">
         <div className="row">
           <div className="col">
-            <div className="forecast-day">fri</div>
-            <Icon
-              className="forecast-icon"
-              code={props.data.icon}
-              alt={props.data.description}
-            />
-            <div className="forecast-temperatures">
-              <span className="min-temperature">
-                {dailyForecast[0].temperature.minimum}° |
-              </span>
-              <span className="max-temperature"> 10°</span>
-            </div>
+            <ForecastDay forecast={dailyForecast} />
           </div>
         </div>
       </div>
     );
   } else {
     apiSearch();
+    return null;
   }
 }
