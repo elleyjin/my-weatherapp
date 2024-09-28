@@ -11,10 +11,7 @@ export default function WeatherInfo(props) {
       <p className="description">{props.data.description}</p>
       <div className="weather-condition">
         <span>
-          <i className="fa-solid fa-droplet"></i> {props.data.humidity}%
-        </span>{" "}
-        <span>
-          <i className="fa-solid fa-wind"></i> {props.data.wind} km/h
+          <i className="fa-solid fa-wind"></i> {props.data.wind}km/h
         </span>
         <span>
           <i className="fa-solid fa-temperature-half"></i> {props.data.feel}°C

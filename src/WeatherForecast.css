@@ -6,11 +6,12 @@
 
 .WeatherForecast .forecast-day {
   font-weight: 700;
+  margin-top: 35px;
 }
 
 .WeatherForecast img {
-  width: 70px;
-  margin: 40px auto;
+  width: 60px;
+  margin: 28px auto;
 }
 
 .WeatherForecast .forecast-temperatures {

@@ -44,7 +44,7 @@
 
 .App .Main img {
   display: block;
-  margin: 100px auto 30px auto;
+  margin: 70px auto 15px auto;
   width: 150px;
 }
 
@@ -61,17 +61,17 @@
 }
 
 .App .description {
-  font-size: 15pt;
+  font-size: 16pt;
 }
 
 .App .weather-condition {
   font-size: 14pt;
   font-weight: 600;
   display: flex;
-  gap: 100px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
-  margin: 30px;
+  margin: 20px;
 }
 
 .App .weather-condition .fa-solid {
@@ -81,7 +81,7 @@
 .App footer {
   text-align: center;
   opacity: 0.8;
-  margin: 25px auto;
+  margin: 40px auto 0 auto;
 }
 
 .App footer a {
