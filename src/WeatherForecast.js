@@ -4,7 +4,7 @@ import axios from "axios";
 import ForecastDay from "./ForecastDay";
 
 export default function WeatherForecast(props) {
-  const [dailyForecast, setDailyForecast] = useState(null);
+  const [dailyForecast, setDailyForecast] = useState(null); // store API responses
   const [load, setLoad] = useState(false);
 
   function displayForecast(response) {
@@ -13,7 +13,7 @@ export default function WeatherForecast(props) {
   }
 
   useEffect(() => {
-    setLoad(false);
+    setLoad(false); // change this code when coordinates changed
   }, [props.data.coordinates]);
 
   function apiSearch() {

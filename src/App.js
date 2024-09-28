@@ -22,7 +22,6 @@ function App(props) {
       icon: response.data.condition.icon,
       coordinates: response.data.coordinates,
     });
-    // console.log(response.data);
   }
 
   function search() {

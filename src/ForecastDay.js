@@ -11,12 +11,14 @@ export default function ForecastDay(props) {
   }
 
   function minTemperature() {
+    // creates temporary var to store temperature calc
     const temperature = Math.round(props.forecast.temperature.minimum);
 
     return temperature;
   }
 
   function maxTemperature() {
+    // creates temporary var to store temperature calc
     const temperature = Math.round(props.forecast.temperature.maximum);
 
     return temperature;
